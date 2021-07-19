@@ -24,11 +24,20 @@
 }
 
 
-.user-form.invalid input {
+.user-form.invalid-username input {
   border-color: red;
   background: #ffd7d7;
 }
 
-.user-form.invalid label {
+.user-form.invalid-username label {
+  color: red;
+}
+
+.user-form.invalid-age input {
+  border-color: red;
+  background: #ffd7d7;
+}
+
+.user-form.invalid-age label {
   color: red;
 }
