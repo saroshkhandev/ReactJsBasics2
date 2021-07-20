@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddUser from "./components/Users/AddUser";
 import "./App.css";
 import UserList from "./components/UserList/UserList";
+import Wrapper from "./components/Helpers/Wrapper";
 
 const DUMMY_USERS = [
   {
@@ -37,10 +38,10 @@ function App() {
   }
 
   return (
-    <div>
+    <Wrapper>
       <AddUser onAddUser={addUserHandler} />
       <section id="users">{content}</section>
-    </div>
+    </Wrapper>
   );
 }
 
