@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserForm from "./components/UserForm/UserForm";
+import AddUser from "./components/Users/AddUser";
 import "./App.css";
 import UserList from "./components/UserList/UserList";
 
@@ -17,20 +17,29 @@ const DUMMY_USERS = [
 ];
 
 function App() {
-  const [users, addUsers] = useState(DUMMY_USERS);
+  const [users, setUsers] = useState(DUMMY_USERS);
+
   const addUserHandler = (userData) => {
-    addUsers(prevUsers => {
+    setUsers((prevUsers) => {
       const updatedUsers = [...prevUsers];
-      updatedUsers.unshift({id: Math.random().toString(), username: userData.username, age: userData.age})
+      updatedUsers.unshift(userData);
+      return updatedUsers;
     });
+    console.log("Updated Users")
   };
+
+  let content = (
+    <p style={{ textAlign: "center" }}>No users found. Maybe add one?</p>
+  );
+
+  if (users.length > 0) {
+    content = <UserList users={users} />;
+  }
 
   return (
     <div>
-      <section id="user-form">
-        <UserForm onAddUser={addUserHandler} />
-        <UserList users={users}  />
-      </section>
+      <AddUser onAddUser={addUserHandler} />
+      <section id="users">{content}</section>
     </div>
   );
 }
