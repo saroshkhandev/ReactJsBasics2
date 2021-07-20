@@ -2,7 +2,6 @@ import React, { useState, Fragment } from "react";
 import AddUser from "./components/Users/AddUser";
 import "./App.css";
 import UserList from "./components/UserList/UserList";
-import Wrapper from "./components/Helpers/Wrapper";
 
 const DUMMY_USERS = [
   {
