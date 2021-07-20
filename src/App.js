@@ -17,10 +17,10 @@ const DUMMY_USERS = [
 ];
 
 function App() {
-  const [users, setUsers] = useState(DUMMY_USERS);
+  const [usersList, setUsersList] = useState(DUMMY_USERS);
 
   const addUserHandler = (userData) => {
-    setUsers((prevUsers) => {
+    setUsersList((prevUsers) => {
       const updatedUsers = [...prevUsers];
       updatedUsers.unshift(userData);
       return updatedUsers;
@@ -32,8 +32,8 @@ function App() {
     <p style={{ textAlign: "center" }}>No users found. Maybe add one?</p>
   );
 
-  if (users.length > 0) {
-    content = <UserList users={users} />;
+  if (usersList.length > 0) {
+    content = <UserList users={usersList} />;
   }
 
   return (
